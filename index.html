@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Salamanca Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.min.css" class="rel">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+ 
+  <style>
+  body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #777;
+  }
+  h1 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 40px;
+    color: #111;
+  }
+  h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: #111;
+  }
+  .container {
+    padding: 50px 120px;
+  }
+  .container2 {
+    padding: 20px 120px;
+  }
+  .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: #777;
+  }
+  .carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */ 
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+  }
+  .carousel-caption h3 {
+    color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: #555;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .modal-header, h4, .close {
+    background-color: #333;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+  .nav-tabs li a {
+    color: #777;
+  }
+  #googleMap {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }  
+  .navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+    color: #fff !important;
+  }
+  .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+    color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #777 !important;
+  }
+  .hoverable {
+    display:inline-block;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    position:relative;
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    tranform: translateZ(0);
+    transition-duration: .3s;
+    transition-property:transform;
+  }
+  .hoverable:before {
+    position:absolute;
+    pointer-events: none;
+    z-index:-1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height:10px;
+    width:90%;
+    opacity:0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    /* W3C */
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+  }
+  .hoverable:hover, .hoverable:active, .hoverable:focus {
+    transform: translateY(-5px);
+  }
+  .hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  @keyframes bounce-animation {
+    16.65% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+    }
+    33.3% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+    49.95% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    66.6% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+  }
+  .bounce {
+    animation-name: bounce-animation;
+    animation-duration: 2s;
+  }
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  .form-control {
+    border-radius: 0;
+  }
+  textarea {
+    resize: none;
+  }
+  </style>
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  
+<!-- Nav Bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">PHilBand Studio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="len1" class="hoverable" href="#myPage">HOME</a></li>
+        <li><a id="len2" class="hoverable" href="#band">BAND</a></li>
+        <li><a id="len3" class="hoverable" href="#tour">TOUR</a></li>
+        <li><a id="len4" class="hoverable" href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://www.ubuy.com.ph/brand/band-merch">Merchandise</a></li>
+            <li><a href="https://spinditty.com/artists-bands/Best-Filipino-OPM-BandsGroups-of-All-Time">Other Band</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Category:Filipino_rock_music_groups">Media</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Home -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="eraserheads.jpg" alt="Eraserheads" width="1200" height="575">
+        <div class="carousel-caption">
+          <h3>Ely Buendia • Marcus Adoro • Buddy Zabala • Raimund Marasigan</h3>
+          <h4>ERASERHEADS</h4>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="kamikazee.jpg" alt="Kamikazee" width="1200" height="575">
+        <div class="carousel-caption">
+            <h3>Jay Contreras • Jomal Linao • Led Tuyay • Puto Astete • Bords Burdeos</h3>
+            <h4>KAMIKAZEE</h4>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="decemberavenue.jpg" alt="December Avenue" width="1200" height="575">
+        <div class="carousel-caption">
+            <h3>Zel Bautista • Jem Manuel • Don Gregorio • Jet Danao • Gelo Cruz</h3>
+            <h4>DECEMBER AVENUE</h4>
+        </div>      
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<!-- Band -->
+<div id="band" class="container text-center">
+  <img src="logo.jpg" alt="PHilBand" width="300" height="150">
+  <p><em>We love music!</em></p>
+  <p>Filipino music is becoming popular around the world. These bands have paved the way to the popular rock and original Pinoy music (OPM) in the Philippines today. This is a comprehensive list of the best and most iconic Filipino bands in the Philippine Music Industry.</p>
+  <br>
+  <h3>List of Popular Songs</h3>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Kamikazee</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="kamialbum.jpg" class="img-circle person" alt="Kamikazee" width="255" height="255">
+      </a>
+      <div id="demo2" class="collapse">
+        <a href="https://youtu.be/ruAAnPihO-M">Martyr Nyebera</a><br>
+        <a href="https://youtu.be/CoblMAyvt5Q">Huling Sayaw</a><br>
+        <a href="https://youtu.be/XxcIBmvh378">Unang Tikim</a><br>
+        <a href="https://youtu.be/ZsEdinsZYsI">Narda</a><br>
+        <a href="https://youtu.be/CIbclDR7WpM">Halik</a><br>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Eraserheads</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="eheadsalbum.jpg" class="img-circle person" alt="Eraserheads" width="255" height="255">
+      </a>
+      <div id="demo" class="collapse">
+        <a href="https://youtu.be/lajnSJZpI34">Ang Huling El Bimbo</a><br>
+        <a href="https://youtu.be/TtqAUOxwh-k">With A Smile</a><br>
+        <a href="https://youtu.be/RnyDOyRf-xs">Spoliarium</a><br>
+        <a href="https://youtu.be/yWeS2Ts4Du0">Alapaap</a><br>
+        <a href="https://youtu.be/YNE8msZqwWA">Magasin</a><br>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <p class="text-center"><strong>December Avenue</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="decemberalbum.jpg" class="img-circle person" alt="December Avenue" width="255" height="255">
+      </a>
+      <div id="demo3" class="collapse">
+        <a href="https://youtu.be/zwtYaqa5RmY">Sa Ngalan Ng Pag-ibig</a><br>
+        <a href="https://youtu.be/kfQBmIp3UUw">Eroplanong Papel</a><br>
+        <a href="https://youtu.be/TVvR6neqMU4">Huling Sandali</a><br>
+        <a href="https://youtu.be/hC4IW0MI8Hs">Bulong</a><br>
+        <a href="https://youtu.be/XBMEC6OPV5I">Dahan</a><br>
+      </div>
+    </div>
+  </div>
+
+    
+  <!-- Background -->
+  <h3 class="text-center">Background Information</h3>  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Kamikazee</a></li>
+    <li><a data-toggle="tab" href="#menu1">Eraserheads</a></li>
+    <li><a data-toggle="tab" href="#menu2">December Avenue</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Kamikazee</h2>
+      <p><b>Genres:</b><br> Alternative Rock, Pop Punk, Hard Rock, Hardcore Punk, OPM</p>
+      <p><b>Year Formed:</b><br> 2000</p>
+      <p><b>Labels:</b><br> Universal Records Philippines Inc.</p>
+      <p><b>Members:</b><br> Jay Contreras, Jomal Linao, Led Tuyay, Puto Astete, Bords Burdeos</p>
+      <p><b>Facts About Kamikazee:</b><br>
+        Kamikazee are iconic Filipino rockers whose music is a mix of Pinoy pop, punk, rock, and metal.<br>
+        Although their music is vulgar, incorporating many references to genitalia, a lot of Filipinos still admire their music.<br>
+        This band is known for their songs "Narda," "Chiksilog," and "Doo Bidoo."</p>
+      <p><b>Albums:</b><br> <em>Kamikazee</em> (2002), <em>Maharot</em> (2006), <em>Long Time Noisy</em> (2009), <em>Romantico</em> (2012)</p> 
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
+      <h2>Eraserheads</h2>
+      <p><b>Genres:</b><br> Alternative Rock, Pop, Experimental, Original Pinoy Music (OPM)</p>
+      <p><b>Year Formed:</b><br> 1989</p>
+      <p><b>Labels:</b><br> BMG, Musiko, Sony BMG Music Entertainment</p>
+      <p><b>Members:</b><br> Ely Buendia, Buddy Zabala, Marcus Adoro, Raimund Marasigan</p>
+      <p><b>Facts About Eraserheads:</b><br>
+        Eraserheads is one of the most successful Filipino rock bands.<br>
+        This band is sometimes dubbed "The Beatles of the Philippines."<br>
+        They are considered one of the most influential and significant bands in the Philippine music industry.<br>
+        They are known for their songs "Ang Huling el Bimbo," "With a Smile," and "Spoliarium."</p>
+      <p><b>Albums:</b><br> <em>Ultraelectromagneticpop</em> (1993), <em>Circus</em> (1994), <em>Cutterpillow</em> (1995), <em>Fruitcake</em> (1996), <em>Sticker Happy</em> (1997), <em>Natin99</em> (1999), <em>Carbon Stereoxide</em> (2001)</p>
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <h2>December Avenue</h2>
+      <p><b>Genres:</b><br> Pop Punk, Pop Rock, Alternative Rock, Emo Music, Indie Pop, Original Pinoy Music (OPM)</p>
+      <p><b>Year Formed:</b><br> 2007</p>
+      <p><b>Labels:</b><br> Tower of Doom Records</p>
+      <p><b>Members:</b><br> Zel Bautista, Jem Manuel, Don Gregorio, Jet Danao, Gelo Cruz</p>
+      <p><b>Facts About December Avenue:</b><br>
+        December Avenue is an indie pop and alternative rock band in the Philippines.<br>
+        This Pinoy rock band is one of the most-streamed bands in the Philippine music industry.<br>
+        They were nominated for multiple awards at the Wish 107.5 FM Music Awards in 2019.</p>
+      <p><b>Albums:</b><br> <em>December Avenue</em> (2016)</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Tour -->
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h3 class="text-center">TOUR DATES</h3>
+    <p class="text-center">We'll play you some music.<br> Book your tickets now!</p>
+    <ul class="list-group">
+      <li class="list-group-item">Eraserheads - May 25<span class="label label-danger">Sold Out!</span></li>
+      <li class="list-group-item">Eraserheads - May 26<span class="label label-danger">Sold Out!</span></li> 
+      <li class="list-group-item">December Avenue - March 03<span class="badge">198 available tickets</span></li> 
+      <li class="list-group-item">Kamikazee - April 22<span class="badge">234 available tickets</span></li> 
+      <li class="list-group-item">Eraserheads - June 17<span class="badge">127 available tickets</span></li> 
+    </ul>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="decembertour.jpg" alt="Philippines" width="400" height="300">
+          <p><strong>Quezon City, Philippines</strong></p>
+          <p>Friday 03 March 2023</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="kamitour.jpg" alt="Philippines" width="400" height="300">
+          <p><strong>Makati City, Philippines</strong></p>
+          <p>Saturday 22 April 2023</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="eheadstour.jpg" alt="USA" width="400" height="300">
+          <p><strong>New York, USA</strong></p>
+          <p>Saturday 17 June 2023</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tickets -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, ₱1200 per person</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+              <button type="submit" class="btn btn-block">Pay 
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Contact -->
+<div id="contact" class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>We'd Love To Hear From You!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Manila, Philippines</p>
+      <p><span class="glyphicon glyphicon-phone"></span> Phone: +63 9123456789</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> Email: salamancarhealee@mail.com</p>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<!-- Location/Map -->
+<div id="tour" class="bg-1">
+<div class="container2">
+<h3 class="text-center">Location</h3>
+<p class="text-center">Elim Center For Renewal, 51 10th Street, Rolling Hills Village, New. P.C. 1112, Quezon City, Metro Manila</p>
+</div>
+</div>
+<img src="map.jpg" class="img-responsive" style="width:100%">
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p><em><b>Designed by: Rhealee Salamanca</b></em></p>
+</footer>
+
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+
+$(function(){
+  var str = '#len'; //increment by 1 up to 1-nelemnts
+  $(document).ready(function(){
+    var i, stop;
+    i = 1;
+    stop = 4; //num elements
+    setInterval(function(){
+      if (i > stop){
+        return;
+      }
+      $('#len'+(i++)).toggleClass('bounce');
+    }, 500)
+  });
+});
+</script>
+
+</body>
+</html>
