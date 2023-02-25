@@ -65,6 +65,10 @@
   }
   .bg-1 h3 {color: #fff;}
   .bg-1 p {font-style: italic;}
+  .bg-2 {
+    background: #fff;
+    color: #bfff;
+  }
   .list-group-item:first-child {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -311,7 +315,9 @@
 
 <!-- Band -->
 <div id="band" class="container text-center">
-  <img src="image/logo.jpg" alt="PHilBand" width="300" height="150">
+  <div id="tour" class="bg-2">
+  <img src="image/logo.jpg" alt="PHilBand" class="rounded mx-auto d-block" style="width:50%">
+  </div>
   <p><em>We love music!</em></p>
   <p>Filipino music is becoming popular around the world. These bands have paved the way to the popular rock and original Pinoy music (OPM) in the Philippines today. This is a comprehensive list of the best and most iconic Filipino bands in the Philippine Music Industry.</p>
   <br>
@@ -362,7 +368,7 @@
 
     
   <!-- Background -->
-  <h3 class="text-center">Background Information</h3>  
+  <h3 class="text-center">Background</h3>  
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Kamikazee</a></li>
     <li><a data-toggle="tab" href="#menu1">Eraserheads</a></li>
@@ -419,18 +425,19 @@
     <h3 class="text-center">TOUR DATES</h3>
     <p class="text-center">We'll play you some music.<br> Book your tickets now!</p>
     <ul class="list-group">
-      <li class="list-group-item">Eraserheads - May 25<span class="label label-danger">Sold Out!</span></li>
-      <li class="list-group-item">Eraserheads - May 26<span class="label label-danger">Sold Out!</span></li> 
-      <li class="list-group-item">December Avenue - March 03<span class="badge">198 available tickets</span></li> 
-      <li class="list-group-item">Kamikazee - April 22<span class="badge">234 available tickets</span></li> 
-      <li class="list-group-item">Eraserheads - June 17<span class="badge">127 available tickets</span></li> 
+      <li class="list-group-item">May 25<span class="label label-danger">Sold Out!</span></li>
+      <li class="list-group-item">May 26<span class="label label-danger">Sold Out!</span></li> 
+      <li class="list-group-item">March 03<span class="badge">98 slots</span></li> 
+      <li class="list-group-item">April 22<span class="badge">34 slots</span></li> 
+      <li class="list-group-item">June 17<span class="badge">27 slots</span></li> 
     </ul>
     
     <div class="row text-center">
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="image/decembertour.jpg" alt="Philippines" width="400" height="300">
-          <p><strong>Quezon City, Philippines</strong></p>
+          <p><strong>December Avenue</strong></p>
+          <p>Quezon City, Philippines</p>
           <p>Friday 03 March 2023</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
         </div>
@@ -439,7 +446,8 @@
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="image/kamitour.jpg" alt="Philippines" width="400" height="300">
-          <p><strong>Makati City, Philippines</strong></p>
+          <p><strong>Kamikazee</strong></p>
+          <p>Makati City, Philippines</p>
           <p>Saturday 22 April 2023</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
         </div>
@@ -448,7 +456,8 @@
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="image/eheadstour.jpg" alt="USA" width="400" height="300">
-          <p><strong>New York, USA</strong></p>
+          <p><strong>Eraserheads</strong></p>
+          <p>New York, USA</p>
           <p>Saturday 17 June 2023</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
         </div>
